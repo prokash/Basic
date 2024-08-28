@@ -1,6 +1,23 @@
 #include <stdio.h>
 #include <string.h>
+#include "fair_count.hpp"
 
+
+void Fibonacci(unsigned int N) {
+    if (N == 0 ) {
+        return;
+    }
+    unsigned Fib1 = 1;
+    unsigned Fib2 = 2;
+    printf("Fibonacci(%u) = %u\n", Fib1, Fib2);
+    unsigned FibN = 0;
+    for (unsigned i = 3; i <= N; i++) {
+        FibN = Fib1 + Fib2;
+        Fib1 = Fib2;
+        Fib2 = FibN;
+        printf("Fibonacci(%u) = %u\n", i, FibN);
+    }
+}
 void reverse (unsigned N) {
 
     printf("N=%d\n", N);
@@ -34,11 +51,40 @@ void reverse_string(char* S ) {
     }
     printf("S = %s\n ", S);
 }
+
+unsigned int length( int a ) {
+    char str[100];
+    sprintf(str, "%d", a);
+    return strlen(str);
+
+
+}
+
+
+void test_length(void)
+{
+    int a = 123456789;
+    int b = 1234567890;
+
+    int len = length(a);
+    printf("len(a) = %d\n", len);
+
+    len = length(b);
+    printf("len(b)= %d\n", len);
+
+}
 int main(void) {
+
+    test_length();
+
+    ///Fibonacci(10);
+
     //OK 1st try reverse(123456789);
-    reverse_final(123456789);
-    char S[] = "123456789";
-    reverse_string(S);
+    //reverse_final(123456789);
+    //char S[] = "123456789";
+    //reverse_string(S);
+
+    fair_main();
 
     return 0;
 }
