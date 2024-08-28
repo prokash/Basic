@@ -1,6 +1,21 @@
 #include <stdio.h>
 #include <string.h>
 
+void Fibonacci(unsigned int N) {
+    if (N == 0 ) {
+        return;
+    }
+    unsigned Fib1 = 1;
+    unsigned Fib2 = 2;
+    printf("Fibonacci(%u) = %u\n", Fib1, Fib2);
+    unsigned FibN = 0;
+    for (unsigned i = 3; i <= N; i++) {
+        FibN = Fib1 + Fib2;
+        Fib1 = Fib2;
+        Fib2 = FibN;
+        printf("Fibonacci(%u) = %u\n", i, FibN);
+    }
+}
 void reverse (unsigned N) {
 
     printf("N=%d\n", N);
@@ -35,10 +50,12 @@ void reverse_string(char* S ) {
     printf("S = %s\n ", S);
 }
 int main(void) {
+    Fibonacci(10);
+
     //OK 1st try reverse(123456789);
-    reverse_final(123456789);
-    char S[] = "123456789";
-    reverse_string(S);
+    //reverse_final(123456789);
+    //char S[] = "123456789";
+    //reverse_string(S);
 
     return 0;
 }
